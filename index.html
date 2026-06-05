@@ -3,38 +3,146 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Наращивание ресниц</title>
+    <title>Lash Studio | Наращивание ресниц</title>
     <style>
-        body { font-family: 'Arial', sans-serif; margin: 0; padding: 0; background-color: #faf6f0; color: #333; text-align: center; }
-        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        img { width: 100%; max-height: 300px; object-fit: cover; border-radius: 15px; margin-top: 15px; }
-        h1 { font-size: 28px; margin-bottom: 5px; color: #4a3b32; }
-        p { font-size: 16px; color: #7a6b62; }
-        .price-list { background: white; padding: 20px; border-radius: 15px; text-align: left; margin: 20px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        .price-item { display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 16px; border-bottom: 1px dashed #e0d5cb; padding-bottom: 5px; }
-        .btn { display: block; background-color: #25d366; color: white; text-decoration: none; padding: 15px; border-radius: 30px; font-size: 18px; font-weight: bold; margin-top: 25px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); }
-        .btn:hover { background-color: #20ba59; }
+        /* Современный и нежный бьюти-дизайн */
+        body { 
+            font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background: #fdfbf7; 
+            color: #2c2520; 
+            display: flex;
+            justify-content: center;
+        }
+        .container { 
+            max-width: 480px; 
+            width: 100%;
+            padding: 24px; 
+            box-sizing: border-box;
+        }
+        .hero-img { 
+            width: 100%; 
+            height: 280px; 
+            object-fit: cover; 
+            border-radius: 24px; 
+            box-shadow: 0 8px 24px rgba(74, 59, 50, 0.08);
+        }
+        h1 { 
+            font-size: 26px; 
+            font-weight: 600;
+            margin: 20px 0 6px 0; 
+            color: #3d312a; 
+            text-align: center;
+        }
+        .subtitle { 
+            font-size: 15px; 
+            color: #8a7a71; 
+            text-align: center; 
+            margin-bottom: 24px;
+        }
+        
+        /* Стили карточек прайса */
+        .price-section {
+            margin-bottom: 30px;
+        }
+        .price-card { 
+            background: #ffffff; 
+            padding: 16px 20px; 
+            border-radius: 16px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            margin-bottom: 12px; 
+            box-shadow: 0 4px 12px rgba(74, 59, 50, 0.03);
+            border: 1px solid rgba(224, 213, 203, 0.4);
+            transition: transform 0.2s;
+        }
+        .price-card:hover {
+            transform: translateY(-2px);
+        }
+        .service-info .name {
+            font-weight: 500;
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+        .service-info .duration {
+            font-size: 12px;
+            color: #a39389;
+        }
+        .price-value { 
+            font-weight: 600; 
+            font-size: 16px; 
+            color: #4a3b32;
+            background: #f7f4f0;
+            padding: 6px 12px;
+            border-radius: 10px;
+        }
+
+        /* Главная кнопка записи */
+        .btn-booking { 
+            display: block; 
+            background: #4a3b32; /* Стильный шоколадный цвет */
+            color: #ffffff; 
+            text-decoration: none; 
+            text-align: center;
+            padding: 16px; 
+            border-radius: 16px; 
+            font-size: 16px; 
+            font-weight: 600; 
+            margin-top: 20px; 
+            box-shadow: 0 6px 20px rgba(74, 59, 50, 0.15);
+            transition: all 0.2s;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+        }
+        .btn-booking:hover { 
+            background: #3d312a;
+            box-shadow: 0 6px 20px rgba(74, 59, 50, 0.25);
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Красивая эстетичная картинка ресниц из интернета -->
-        <img src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?auto=format&fit=crop&w=600&q=80" alt="Ресницы">
+        <!-- Эстетичное превью -->
+        <img class="hero-img" src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?auto=format&fit=crop&w=600&q=80" alt="Lashes">
         
-        <h1>Наращивание ресниц</h1>
-        <p>Идеальный взгляд. Запись за 1 минуту 👇</p>
+        <h1>Студия взгляда</h1>
+        <p class="subtitle">Выбери удобное время для преображения ✨</p>
 
-        <div class="price-list">
-            <div class="price-item"><span>Классика</span> <strong>3 990 ₸</strong></div>
-            <div class="price-item"><span>Объем 2D</span> <strong>5 990 ₸</strong></div>
-            <div class="price-item"><span>Объем 3D</span> <strong>7 990 ₸</strong></div>
-            <div class="price-item"><span>Снятие чужой работы</span> <strong>1 500 ₸</strong></div>
+        <!-- Прайс-лист в виде красивых карточек -->
+        <div class="price-section">
+            <div class="price-card">
+                <div class="service-info">
+                    <div class="name">Классическое наращивание</div>
+                    <div class="duration">⏱ 1.5 - 2 часа</div>
+                </div>
+                <div class="price-value">6 000 ₸</div>
+            </div>
+
+            <div class="price-card">
+                <div class="service-info">
+                    <div class="name">Объемное наращивание 2D</div>
+                    <div class="duration">⏱ 2 часа</div>
+                </div>
+                <div class="price-value">7 500 ₸</div>
+            </div>
+
+            <div class="price-card">
+                <div class="service-info">
+                    <div class="name">Объемное наращивание 3D</div>
+                    <div class="duration">⏱ 2.5 часа</div>
+                </div>
+                <div class="price-value">9 000 ₸</div>
+            </div>
         </div>
 
-        <!-- ЗАМЕНИ НОМЕР 77001234567 НА СВОЙ -->
-      <a href="https://wa.me/77781143859?text=Здравствуйте!%20Хочу%20записаться%20на%20ресницы" class="btn" target="_blank">
-            Записаться через WhatsApp
-        </a>
+        <!-- КНОПКА ЗАПИСИ (ЕСЛИ ВСТАВЛЯЕШЬ КОД СКРИПТА, ЭТУ КНОПКУ МОЖНО СТЕРЕТЬ ИЛИ ЗАМЕНИТЬ) -->
+        <a href="ВСТАВЬ_СЮДА_СВОЮ_ССЫЛКУ_ИЗ_DIKIDI" class="btn-booking" target="_blank">Выбрать дату и время</a>
+        <!-- МЕСТО ДЛЯ КОДА ИЗ ШАГА 1 -->
+        <!-- Вставь скопированный из DIKIDI код прямо сюда, сразу под этой строчкой -->
+
     </div>
 </body>
 </html>
