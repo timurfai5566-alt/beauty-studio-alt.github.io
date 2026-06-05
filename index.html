@@ -5,69 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Студия наращивания ресниц</title>
     <style>
-        /* Стильный дорогой дизайн в пастельных тонах как на сайтах топ-салонов */
         body { 
-    font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; 
-    margin: 0; 
-    padding: 0; 
-    /* Прямая ссылка на ваше фото из чата */
-    background: url('https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80') no-repeat center center fixed;
-    background-size: cover;
-    color: #2a2421; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
-.container { 
-    max-width: 480px; 
-    width: 100%;
-    padding: 24px; 
-    box-sizing: border-box;
-    /* Полупрозрачный светлый фон, чтобы текст поверх темного фото идеально читался */
-    background: rgba(253, 250, 246, 0.93); 
-    backdrop-filter: blur(8px); /* Эффектное размытие заднего фона за карточкой */
-    border-radius: 28px;
-    margin: 20px 10px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-        /* Главный баннер */
-        .main-banner {
-            position: relative;
+            font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            background: #fdfaf6; 
+            color: #2a2421; 
+            display: flex;
+            justify-content: center;
+        }
+        .container { 
+            max-width: 540px; 
             width: 100%;
-            height: 320px;
+            padding: 20px; 
+            box-sizing: border-box;
+        }
+        
+        /* СТИЛЬНЫЙ ДВУХЦВЕТНЫЙ БАННЕР КАК НА РЕФЕРЕНСЕ image_3b1449.jpg */
+        .split-banner {
+            display: flex;
+            width: 100%;
+            height: 340px;
             border-radius: 28px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(61, 49, 42, 0.08);
+            box-shadow: 0 10px 30px rgba(61, 49, 42, 0.06);
+            margin-bottom: 25px;
+            background: #ffffff;
         }
-        .main-banner img {
+        /* Левая белая часть с текстом */
+        .banner-left {
+            flex: 1.1;
+            padding: 30px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: #ffffff;
+        }
+        .banner-left h1 {
+            margin: 0 0 10px 0;
+            font-size: 28px;
+            font-weight: 600;
+            color: #2a2421;
+            line-height: 1.2;
+        }
+        .banner-left p {
+            margin: 0 0 15px 0;
+            font-size: 14px;
+            color: #8a7a71;
+            line-height: 1.4;
+        }
+        .banner-price-tag {
+            font-size: 15px;
+            font-weight: 500;
+            color: #a39389;
+        }
+        .banner-price-tag strong {
+            color: #3d312a;
+            font-size: 18px;
+        }
+        /* Правая цветная часть с фото */
+        .banner-right {
+            flex: 0.9;
+            background: #f4b295; /* Нежный персиковый фон как на картинке */
+            position: relative;
+        }
+        .banner-right img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        .banner-text {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(42,36,33,0.85), rgba(42,36,33,0));
-            padding: 30px 20px 20px 20px;
-            color: white;
-            text-align: center;
-        }
-        .banner-text h1 { margin: 0 0 5px 0; font-size: 24px; font-weight: 600; letter-spacing: 0.5px; }
-        .banner-text p { margin: 0; font-size: 14px; opacity: 0.9; }
 
-        /* Кнопка записи вверху */
+        /* Кнопка записи скругленная (как на скриншоте) */
         .btn-main { 
             display: block; 
-            background: #bf9f8f; /* Дорогой нюдовый оттенок */
+            background: #bf9f8f; 
             color: #ffffff; 
             text-decoration: none; 
             text-align: center;
             padding: 16px; 
-            border-radius: 18px; 
+            border-radius: 30px; /* Круглые края как на макете */
             font-size: 16px; 
             font-weight: 600; 
             margin: 20px 0; 
@@ -78,144 +94,91 @@
         }
         .btn-main:hover { background: #ad8c7c; }
 
-        /* Раздел "Преимущества" */
-        .features {
-            display: flex;
-            justify-content: space-between;
-            margin: 25px 0;
-            gap: 10px;
-        }
+        /* Преимущества */
+        .features { display: flex; justify-content: space-between; margin: 25px 0; gap: 10px; }
         .feature-box {
-            background: #ffffff;
-            padding: 12px;
-            border-radius: 16px;
-            text-align: center;
-            flex: 1;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
-            border: 1px solid rgba(224, 213, 203, 0.3);
+            background: #ffffff; padding: 12px; border-radius: 16px; text-align: center; flex: 1;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02); border: 1px solid rgba(224, 213, 203, 0.3);
         }
         .feature-box .icon { font-size: 20px; margin-bottom: 5px; }
         .feature-box .text { font-size: 11px; font-weight: 500; color: #6e6057; }
 
-        /* Заголовки разделов */
         h2 { font-size: 18px; font-weight: 600; color: #3d312a; margin: 25px 0 15px 0; padding-left: 5px; }
 
-        /* СТИЛИ ДЛЯ ВЫЕЗЖАЮЩИХ СЛАЙДОВ (АККОРДЕОНОВ) */
+        /* Выезжающие слайды-аккордеоны */
         .accordion-item {
-            background: #ffffff;
-            border-radius: 20px;
-            margin-bottom: 12px;
-            box-shadow: 0 4px 15px rgba(61, 49, 42, 0.02);
-            border: 1px solid rgba(224, 213, 203, 0.3);
+            background: #ffffff; border-radius: 20px; margin-bottom: 12px;
+            box-shadow: 0 4px 15px rgba(61, 49, 42, 0.02); border: 1px solid rgba(224, 213, 203, 0.3);
             overflow: hidden;
         }
-        /* Шапка слайда */
         .accordion-header {
-            padding: 18px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            cursor: pointer;
-            user-select: none;
+            padding: 18px 20px; display: flex; justify-content: space-between; align-items: center;
+            cursor: pointer; user-select: none;
         }
-        .service-info { display: flex; flex-direction: column; }
         .service-title { font-weight: 600; font-size: 15px; color: #3d312a; }
+        .arrow { font-size: 12px; color: #a39389; transition: transform 0.3s ease; }
+        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: #fdfdfd; }
+        .accordion-body { padding: 0 20px 20px 20px; font-size: 13px; color: #6e6057; line-height: 1.5; }
         
-        /* Стрелочка справа */
-        .arrow {
-            font-size: 12px;
-            color: #a39389;
-            transition: transform 0.3s ease;
-        }
-        /* Скрытое описание (плавно выезжает) */
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-            background: #fdfdfd;
-        }
-        .accordion-body {
-            padding: 0 20px 20px 20px;
-            font-size: 13px;
-            color: #6e6057;
-            line-height: 1.5;
-        }
         .price-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 15px;
-            padding-top: 12px;
-            border-top: 1px dashed #e0d5cb;
+            display: flex; justify-content: space-between; align-items: center;
+            margin-top: 15px; padding-top: 12px; border-top: 1px dashed #e0d5cb;
         }
         .details-text { font-size: 12px; color: #a39389; }
         .price-text { 
-            font-weight: 700; 
-            font-size: 15px; 
-            color: #ffffff;
-            background: #3d312a;
-            padding: 8px 14px;
-            border-radius: 12px;
+            font-weight: 700; font-size: 15px; color: #ffffff;
+            background: #3d312a; padding: 8px 14px; border-radius: 12px;
         }
-        
-        /* Анимация поворота стрелочки при активации */
-        .accordion-item.active .arrow {
-            transform: rotate(180deg);
-        }
+        .accordion-item.active .arrow { transform: rotate(180deg); }
 
         /* Контакты */
         .contacts {
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 20px;
-            margin-top: 30px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(61, 49, 42, 0.02);
-            border: 1px solid rgba(224, 213, 203, 0.3);
+            background: #ffffff; padding: 20px; border-radius: 20px; margin-top: 30px; text-align: center;
+            box-shadow: 0 4px 15px rgba(61, 49, 42, 0.02); border: 1px solid rgba(224, 213, 203, 0.3);
         }
         .contacts p { margin: 5px 0; font-size: 14px; color: #6e6057; }
         .phone-link { color: #bf9f8f; font-weight: bold; text-decoration: none; font-size: 16px; display: inline-block; margin-top: 5px; }
+
+        /* Адаптивность для мобилок */
+        @media (max-width: 420px) {
+            .split-banner { flex-direction: column; height: auto; }
+            .banner-right { height: 200px; }
+            .banner-left { text-align: center; }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         
-        <!-- Главный красивый баннер с наложением текста -->
-        <div class="main-banner">
-            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80" alt="Lashes">
-            <div class="banner-text">
-                <h1>Студия наращивания ресниц</h1>
-                <p>Премиальное качество • Безупречный взгляд</p>
+        <!-- Новый разделенный баннер -->
+        <div class="split-banner">
+            <div class="banner-left">
+                <h1>Наращивание ресниц</h1>
+                <p>Сделай красивые и выразительные ресницы в нашей студии взгляда</p>
+                <div class="banner-price-tag">от <strong>3 990 ₸</strong></div>
+            </div>
+            <div class="banner-right">
+                <!-- Качественная бьюти-картинка модели, аккуратно обрезанная под фон -->
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=500&q=80" alt="Beauty model">
             </div>
         </div>
 
-        <!-- ТВОЯ СОХРАНЕННАЯ ССЫЛКА DIKIDI -->
+        <!-- Кнопка DIKIDI -->
         <a href="https://dikidi.net/2086709" class="btn-main" target="_blank">
-            Записаться онлайн / Выбрать дату
+            Записаться онлайн
         </a>
 
         <!-- Блок преимуществ -->
         <div class="features">
-            <div class="feature-box">
-                <div class="icon">✨</div>
-                <div class="text">Топ мастера</div>
-            </div>
-            <div class="feature-box">
-                <div class="icon">⏱</div>
-                <div class="text">Носка от 4 недель</div>
-            </div>
-            <div class="feature-box">
-                <div class="icon">🌿</div>
-                <div class="text">Гипоаллергенно</div>
-            </div>
+            <div class="feature-box><div class="icon">✨</div><div class="text">Топ мастера</div></div>
+            <div class="feature-box"><div class="icon">⏱</div><div class="text">Носка от 4 недель</div></div>
+            <div class="feature-box"><div class="icon">🌿</div><div class="text">Гипоаллергенно</div></div>
         </div>
 
         <h2>Наши услуги и описание</h2>
 
-        <!-- СПИСОК УСЛУГ В ВИДЕ ИНТЕРАКТИВНЫХ СЛАЙДОВ -->
+        <!-- Слайды прайса -->
         <div class="price-section">
-
-            <!-- Слайд 1: Классика -->
             <div class="accordion-item">
                 <div class="accordion-header">
                     <span class="service-title">Классическое наращивание</span>
@@ -232,7 +195,6 @@
                 </div>
             </div>
 
-            <!-- Слайд 2: 2D -->
             <div class="accordion-item">
                 <div class="accordion-header">
                     <span class="service-title">Объемное наращивание 2D</span>
@@ -249,7 +211,6 @@
                 </div>
             </div>
 
-            <!-- Слайд 3: 3D -->
             <div class="accordion-item">
                 <div class="accordion-header">
                     <span class="service-title">Объемное наращивание 3D</span>
@@ -266,7 +227,6 @@
                 </div>
             </div>
 
-            <!-- Слайд 4: Снятие -->
             <div class="accordion-item">
                 <div class="accordion-header">
                     <span class="service-title">Снятие ресниц чужого мастера</span>
@@ -282,26 +242,22 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
-        <!-- ТВОЙ БЛОК КОНТАКТОВ С СОХРАНЕННЫМ НОМЕРОМ -->
         <div class="contacts">
-            <p>📍 г. Петропавловск, ул. Примерная, 15</p>
+            <p>📍 г. Петропавловск, ул. Интернациональная 79Б, салон - Nailand</p>
             <p>Связь по телефону:</p>
             <a href="tel:+77781143859" class="phone-link">+7 (778) 114-38-59</a>
         </div>
 
     </div>
 
-    <!-- СКРИПТ ДЛЯ АНИМАЦИИ ОТКРЫТИЯ СЛАЙДОВ -->
     <script>
         document.querySelectorAll('.accordion-header').forEach(header => {
             header.addEventListener('click', () => {
                 const item = header.parentElement;
                 const content = item.querySelector('.accordion-content');
                 
-                // Закрываем другие слайды при открытии нового
                 document.querySelectorAll('.accordion-item').forEach(otherItem => {
                     if (otherItem !== item && otherItem.classList.contains('active')) {
                         otherItem.classList.remove('active');
@@ -309,7 +265,6 @@
                     }
                 });
 
-                // Переключаем текущий слайд
                 item.classList.toggle('active');
                 if (item.classList.contains('active')) {
                     content.style.maxHeight = content.scrollHeight + "px";
