@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lash Studio | Наращивание ресниц</title>
     <style>
-        /* Современный и нежный бьюти-дизайн */
         body { 
-            font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
+            font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; 
             margin: 0; 
             padding: 0; 
             background: #fdfbf7; 
@@ -26,7 +25,7 @@
             height: 280px; 
             object-fit: cover; 
             border-radius: 24px; 
-            box-shadow: 0 8px 24px rgba(74, 59, 50, 0.08);
+            box-shadow: 0 8px 24px rgba(74, 59, 50, 0.06);
         }
         h1 { 
             font-size: 26px; 
@@ -41,11 +40,6 @@
             text-align: center; 
             margin-bottom: 24px;
         }
-        
-        /* Стили карточек прайса */
-        .price-section {
-            margin-bottom: 30px;
-        }
         .price-card { 
             background: #ffffff; 
             padding: 16px 20px; 
@@ -56,20 +50,8 @@
             margin-bottom: 12px; 
             box-shadow: 0 4px 12px rgba(74, 59, 50, 0.03);
             border: 1px solid rgba(224, 213, 203, 0.4);
-            transition: transform 0.2s;
         }
-        .price-card:hover {
-            transform: translateY(-2px);
-        }
-        .service-info .name {
-            font-weight: 500;
-            font-size: 16px;
-            margin-bottom: 4px;
-        }
-        .service-info .duration {
-            font-size: 12px;
-            color: #a39389;
-        }
+        .name { font-weight: 500; font-size: 16px; }
         .price-value { 
             font-weight: 600; 
             font-size: 16px; 
@@ -78,11 +60,9 @@
             padding: 6px 12px;
             border-radius: 10px;
         }
-
-        /* Главная кнопка записи */
         .btn-booking { 
             display: block; 
-            background: #4a3b32; /* Стильный шоколадный цвет */
+            background: #4a3b32; 
             color: #ffffff; 
             text-decoration: none; 
             text-align: center;
@@ -90,59 +70,45 @@
             border-radius: 16px; 
             font-size: 16px; 
             font-weight: 600; 
-            margin-top: 20px; 
+            margin-top: 24px; 
             box-shadow: 0 6px 20px rgba(74, 59, 50, 0.15);
-            transition: all 0.2s;
             border: none;
             width: 100%;
             cursor: pointer;
-        }
-        .btn-booking:hover { 
-            background: #3d312a;
-            box-shadow: 0 6px 20px rgba(74, 59, 50, 0.25);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Эстетичное превью -->
-        <img class="hero-img" src="https://images.unsplash.com/photo-1583001931096-959e9a1a6223?auto=format&fit=crop&w=600&q=80" alt="Lashes">
+        <!-- Настоящая эстетичная картинка ресниц -->
+        <img class="hero-img" src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80" alt="Lashes">
         
-        <h1>Студия взгляда</h1>
-        <p class="subtitle">Выбери удобное время для преображения ✨</p>
+        <h1>Наращивание ресниц</h1>
+        <p class="subtitle">Выбери удобное время для записи 👇</p>
 
-        <!-- Прайс-лист в виде красивых карточек -->
         <div class="price-section">
             <div class="price-card">
-                <div class="service-info">
-                    <div class="name">Классическое наращивание</div>
-                    <div class="duration">⏱ 1.5 - 2 часа</div>
-                </div>
-                <div class="price-value">6 000 ₸</div>
+                <div class="name">Классика</div>
+                <div class="price-value">3 990 ₸</div>
             </div>
-
             <div class="price-card">
-                <div class="service-info">
-                    <div class="name">Объемное наращивание 2D</div>
-                    <div class="duration">⏱ 2 часа</div>
-                </div>
-                <div class="price-value">7 500 ₸</div>
+                <div class="name">Объем 2D</div>
+                <div class="price-value">6 990 ₸</div>
             </div>
-
             <div class="price-card">
-                <div class="service-info">
-                    <div class="name">Объемное наращивание 3D</div>
-                    <div class="duration">⏱ 2.5 часа</div>
-                </div>
-                <div class="price-value">9 000 ₸</div>
+                <div class="name">Объем 3D</div>
+                <div class="price-value">7 990 ₸</div>
+            </div>
+            <div class="price-card">
+                <div class="name">Снятие чужой работы</div>
+                <div class="price-value">1 500 ₸</div>
             </div>
         </div>
 
-        <!-- КНОПКА ЗАПИСИ (ЕСЛИ ВСТАВЛЯЕШЬ КОД СКРИПТА, ЭТУ КНОПКУ МОЖНО СТЕРЕТЬ ИЛИ ЗАМЕНИТЬ) -->
-        <a href="ВСТАВЬ_СЮДА_СВОЮ_ССЫЛКУ_ИЗ_DIKIDI" class="btn-booking" target="_blank">Выбрать дату и время</a>
-        <!-- МЕСТО ДЛЯ КОДА ИЗ ШАГА 1 -->
-        <!-- Вставь скопированный из DIKIDI код прямо сюда, сразу под этой строчкой -->
-
+        <!-- КНОПКА ЗАПИСИ С КАЛЕНДАРЕМ -->
+        <a href="ВСТАВЬ_СЮДА_ССЫЛКУ_ИЗ_DIKIDI" class="btn-booking" target="_blank">
+            Выбрать дату и время записи
+        </a>
     </div>
 </body>
 </html>
