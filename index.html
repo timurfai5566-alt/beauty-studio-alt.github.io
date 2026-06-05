@@ -7,22 +7,31 @@
     <style>
         /* Стильный дорогой дизайн в пастельных тонах как на сайтах топ-салонов */
         body { 
-            font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            background: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1000&q=80') no-repeat center center fixed;
-background-size: cover; 
-            color: #2a2421; 
-            display: flex;
-            justify-content: center;
+           { 
+    font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; 
+    margin: 0; 
+    padding: 0; 
+    /* Прямая ссылка на ваше фото из чата */
+    background: url('https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80') no-repeat center center fixed;
+    background-size: cover;
+    color: #2a2421; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
         }
         .container { 
-            max-width: 480px; 
-            width: 100%;
-            padding: 20px; 
-            box-sizing: border-box;
-        }
-        
+    max-width: 480px; 
+    width: 100%;
+    padding: 24px; 
+    box-sizing: border-box;
+    /* Полупрозрачный светлый фон, чтобы текст поверх темного фото идеально читался */
+    background: rgba(253, 250, 246, 0.93); 
+    backdrop-filter: blur(8px); /* Эффектное размытие заднего фона за карточкой */
+    border-radius: 28px;
+    margin: 20px 10px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
         /* Главный баннер */
         .main-banner {
             position: relative;
