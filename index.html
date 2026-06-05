@@ -3,120 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lash Studio | Наращивание ресниц</title>
+    <title>Студия наращивания ресниц</title>
     <style>
+        /* Стильный дорогой дизайн в пастельных тонах как на сайтах топ-салонов */
         body { 
             font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; 
             margin: 0; 
             padding: 0; 
-            background: #fdfbf7; 
-            color: #2c2520; 
+            background: #fdfaf6; 
+            color: #2a2421; 
             display: flex;
             justify-content: center;
         }
         .container { 
             max-width: 480px; 
             width: 100%;
-            padding: 24px; 
+            padding: 20px; 
             box-sizing: border-box;
         }
-        .hero-img { 
-            width: 100%; 
-            height: 280px; 
-            object-fit: cover; 
-            border-radius: 24px; 
-            box-shadow: 0 8px 24px rgba(74, 59, 50, 0.06);
+        
+        /* Главный баннер */
+        .main-banner {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(61, 49, 42, 0.08);
         }
-        h1 { 
-            font-size: 26px; 
-            font-weight: 600;
-            margin: 20px 0 6px 0; 
-            color: #3d312a; 
+        .main-banner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .banner-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(42,36,33,0.85), rgba(42,36,33,0));
+            padding: 30px 20px 20px 20px;
+            color: white;
             text-align: center;
         }
-        .subtitle { 
-            font-size: 15px; 
-            color: #8a7a71; 
-            text-align: center; 
-            margin-bottom: 24px;
-        }
-        .price-card { 
-            background: #ffffff; 
-            padding: 16px 20px; 
-            border-radius: 16px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center;
-            margin-bottom: 12px; 
-            box-shadow: 0 4px 12px rgba(74, 59, 50, 0.03);
-            border: 1px solid rgba(224, 213, 203, 0.4);
-        }
-        .name { font-weight: 500; font-size: 16px; }
-        .price-value { 
-            font-weight: 600; 
-            font-size: 16px; 
-            color: #4a3b32;
-            background: #f7f4f0;
-            padding: 6px 12px;
-            border-radius: 10px;
-        }
-        .btn-booking { 
+        .banner-text h1 { margin: 0 0 5px 0; font-size: 24px; font-weight: 600; letter-spacing: 0.5px; }
+        .banner-text p { margin: 0; font-size: 14px; opacity: 0.9; }
+
+        /* Кнопка записи вверху */
+        .btn-main { 
             display: block; 
-            background: #4a3b32; 
+            background: #bf9f8f; /* Дорогой нюдовый оттенок */
             color: #ffffff; 
             text-decoration: none; 
             text-align: center;
             padding: 16px; 
-            border-radius: 16px; 
+            border-radius: 18px; 
             font-size: 16px; 
             font-weight: 600; 
-            margin-top: 24px; 
-            box-shadow: 0 6px 20px rgba(74, 59, 50, 0.15);
+            margin: 20px 0; 
+            box-shadow: 0 6px 20px rgba(191, 159, 143, 0.3);
             border: none;
-            width: 100%;
             cursor: pointer;
+            transition: 0.2s;
         }
+        .btn-main:hover { background: #ad8c7c; }
+
+        /* Раздел "Преимущества" как на референсе */
+        .features {
+            display: flex;
+            justify-content: space-between;
+            margin: 25px 0;
+            gap: 10px;
+        }
+        .feature-box {
+            background: #ffffff;
+            padding: 12px;
+            border-radius: 16px;
+            text-align: center;
+            flex: 1;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            border: 1px solid rgba(224, 213, 203, 0.3);
+        }
+        .feature-box .icon { font-size: 20px; margin-bottom: 5px; }
+        .feature-box .text { font-size: 11px; font-weight: 500; color: #6e6057; }
+
+        /* Заголовки разделов */
+        h2 { font-size: 18px; font-weight: 600; color: #3d312a; margin: 25px 0 15px 0; padding-left: 5px; }
+
+        /* Улучшенные карточки услуг */
+        .price-card { 
+            background: #ffffff; 
+            padding: 16px 20px; 
+            border-radius: 20px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            margin-bottom: 12px; 
+            box-shadow: 0 4px 15px rgba(61, 49, 42, 0.02);
+            border: 1px solid rgba(224, 213, 203, 0.3);
+        }
+        .service-info .name { font-weight: 600; font-size: 15px; color: #3d312a; margin-bottom: 3px; }
+        .service-info .details { font-size: 12px; color: #a39389; }
+        .price-value { 
+            font-weight: 700; 
+            font-size: 15px; 
+            color: #ffffff;
+            background: #3d312a; /* Темный контрастный акцент для цены */
+            padding: 8px 14px;
+            border-radius: 12px;
+        }
+
+        /* Контакты */
+        .contacts {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 20px;
+            margin-top: 30px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(61, 49, 42, 0.02);
+            border: 1px solid rgba(224, 213, 203, 0.3);
+        }
+        .contacts p { margin: 5px 0; font-size: 14px; color: #6e6057; }
+        .phone-link { color: #bf9f8f; font-weight: bold; text-decoration: none; font-size: 16px; display: inline-block; margin-top: 5px; }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- Настоящая эстетичная картинка ресниц -->
-        <img class="hero-img" src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80" alt="Lashes">
         
-        <h1>Наращивание ресниц</h1>
-        <p class="subtitle">Выбери удобное время для записи 👇</p>
+        <!-- Главный красивый баннер с наложением текста (как на топовых сайтах) -->
+        <div class="main-banner">
+            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=600&q=80" alt="Lashes">
+            <div class="banner-text">
+                <h1>Студия наращивания ресниц</h1>
+                <p>Премиальное качество • Безупречный взгляд</p>
+            </div>
+        </div>
 
+        <!-- КНОПКА ДЛЯ ТВОЕЙ ССЫЛКИ С ГРАФИКОМ DIKIDI -->
+        <a href="https://dikidi.net/2086709" class="btn-main" target="_blank">
+            Записаться онлайн / Выбрать дату
+        </a>
+
+        <!-- Блок преимуществ как на оригинальном сайте -->
+        <div class="features">
+            <div class="feature-box">
+                <div class="icon">✨</div>
+                <div class="text">Топ мастера</div>
+            </div>
+            <div class="feature-box">
+                <div class="icon">⏱</div>
+                <div class="text">Носка от 4 недель</div>
+            </div>
+            <div class="feature-box">
+                <div class="icon">🌿</div>
+                <div class="text">Гипоаллергенно</div>
+            </div>
+        </div>
+
+        <h2>Наши услуги и цены</h2>
+
+        <!-- Список услуг в премиум стиле -->
         <div class="price-section">
             <div class="price-card">
-                <div class="name">Классика</div>
+                <div class="service-info">
+                    <div class="name">Классическое наращивание</div>
+                    <div class="details">⏳ 1.5 - 2 часа</div>
+                </div>
                 <div class="price-value">3 990 ₸</div>
             </div>
             <div class="price-card">
-                <div class="name">Объем 2D</div>
+                <div class="service-info">
+                    <div class="name">Объемное наращивание 2D</div>
+                    <div class="details">⏳ 2 часа</div>
+                </div>
                 <div class="price-value">6 990 ₸</div>
             </div>
             <div class="price-card">
-                <div class="name">Объем 3D</div>
+                <div class="service-info">
+                    <div class="name">Объемное наращивание 3D</div>
+                    <div class="details">⏳ 2.5 часа</div>
+                </div>
                 <div class="price-value">7 990 ₸</div>
             </div>
             <div class="price-card">
-                <div class="name">Снятие чужой работы</div>
+                <div class="service-info">
+                    <div class="name">Снятие ресниц чужого мастера</div>
+                    <div class="details">⏳ 20-30 минут</div>
+                </div>
                 <div class="price-value">1 500 ₸</div>
             </div>
         </div>
 
-        <!-- КНОПКА ЗАПИСИ С КАЛЕНДАРЕМ -->
-        <a href="https://dikidi.net/2086709" class="btn-booking" target="_blank">
-            Выбрать дату и время записи
-        </a>
-        
-        <!-- БЛОК С ТЕЛЕФОНОМ ДЛЯ СВЯЗИ -->
-        <div style="text-align: center; margin-top: 20px; font-size: 16px; color: #8a7a71;">
-         Или свяжитесь со мной по телефону:<br>
-         <a href="tel:+77001234567" style="color: #4a3b32; font-weight: bold; text-decoration: none; display: inline-block; margin-top: 5px;">
-              +7 (777) 123-09-54
-        </a>
-       </div>
+        <!-- Блок контактов -->
+        <div class="contacts">
+            <p>📍 г. Петропавловск, ул. Примерная, 15</p>
+            <p>Связь по телефону:</p>
+            <!-- ЗАМЕНИ НОМЕР НА СВОЙ ТАКЖЕ КАК В ПРОШЛЫЙ РАЗ -->
+            <a href="tel:+77771230954" class="phone-link">+7 (700) 123-45-67</a>
+        </div>
+
     </div>
 </body>
 </html>
