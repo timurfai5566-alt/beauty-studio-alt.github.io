@@ -6,11 +6,16 @@
     <title>Lash Beauty Studio | Наращивание ресниц</title>
     <style>
         * { box-sizing: border-box; }
+        
+        /* Добавляем плавную прокрутку для всего сайта */
+        html {
+            scroll-behavior: smooth;
+        }
+        
         body { 
             font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; 
             margin: 0; 
             padding: 0; 
-            /* Подключаем твое темное атмосферное фото на фон */
             background: url('фон для сайта.jpg') no-repeat center center fixed;
             background-size: cover;
             color: #ffffff; 
@@ -20,7 +25,7 @@
             align-items: center;
         }
 
-        /* Шапка сайта (Навигация) как на макете */
+        /* Шапка сайта (Навигация) */
         header {
             width: 100%;
             max-width: 1200px;
@@ -104,6 +109,8 @@
             max-width: 600px;
             margin: 40px 0;
             padding: 0 20px;
+            /* Отступ сверху, чтобы при скролле заголовок не прятался под меню */
+            scroll-margin-top: 100px; 
         }
         h2 { text-align: center; font-size: 24px; margin-bottom: 25px; font-weight: 600; }
 
@@ -135,6 +142,7 @@
             padding: 25px;
             text-align: center;
             margin-top: 30px;
+            scroll-margin-top: 100px;
         }
         .btn-instagram {
             display: inline-flex;
@@ -151,10 +159,10 @@
         }
         .phone-link { color: #e0659f; font-weight: 700; text-decoration: none; font-size: 18px; display: block; margin-top: 5px; }
 
-        /* Адаптивность под мобильные телефоны */
+        /* Адаптивность */
         @media (max-width: 768px) {
             header { padding: 15px 20px; }
-            nav { display: none; } /* Скрываем меню на мобилках для чистоты */
+            nav { display: none; } /* На мобилках меню прячется, кнопка "Записаться" остается */
             .hero { margin-top: 100px; padding: 30px 20px; width: 92%; }
             .hero h1 { font-size: 28px; }
             .hero p { font-size: 15px; }
@@ -164,24 +172,31 @@
 </head>
 <body>
 
+    <!-- Шапка с кликабельными ссылками -->
     <header>
         <div class="logo"><span>✦</span> Lash Beauty Studio</div>
         <nav>
-            <a href="#">Услуги</a>
-            <a href="#">Галерея</a>
-            <a href="#">О нас</a>
-            <a href="#">Контакты</a>
+            <!-- #services плавно переместит к ценам -->
+            <a href="#services">Услуги</a>
+            <!-- Галерея сразу открывает твой Инстаграм в новой вкладке (замени "твой_логин") -->
+            <a href="https://instagram.com/твой_логин" target="_blank">Галерея</a>
+            <!-- О нас ведет сразу на график DIKIDI -->
+            <a href="https://dikidi.net/2086709" target="_blank">О нас</a>
+            <!-- #contacts_block плавно переместит вниз к контактам -->
+            <a href="#contacts_block">Контакты</a>
         </nav>
         <a href="https://dikidi.net/2086709" class="header-btn" target="_blank">Записаться</a>
     </header>
 
+    <!-- Главный экран -->
     <div class="hero">
         <h1>Наращивание ресниц</h1>
         <p>Профессиональное наращивание ресниц премиум-качества</p>
         <a href="https://dikidi.net/2086709" class="btn-cta" target="_blank">Записаться на процедуру</a>
     </div>
 
-    <div class="main-content">
+    <!-- Блок с ценами (привязали ID services) -->
+    <div class="main-content" id="services">
         <h2>Наши услуги</h2>
         
         <div class="price-card">
@@ -202,7 +217,9 @@
                 <span class="service-price">1 500 ₸</span>
             </div>
 
-            <div class="contacts">
+            <!-- Контакты и Инстаграм (привязали ID contacts_block) -->
+            <div class="contacts" id="contacts_block">
+                <!-- НЕ ЗАБУДЬ ПОМЕНЯТЬ "твой_логин" ТУТ И В ШАПКЕ САЙТА ВЫШЕ -->
                 <a href="https://instagram.com/твой_логин" class="btn-instagram" target="_blank">
                     📸 Мы в Instagram
                 </a>
