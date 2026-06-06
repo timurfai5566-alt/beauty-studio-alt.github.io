@@ -73,4 +73,144 @@
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
         }
         .hero h1 {
-            font-size:
+            font-size: 42px;
+            font-weight: 700;
+            margin: 0 0 15px 0;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+        .hero p {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.75);
+            margin: 0 0 30px 0;
+        }
+        .btn-cta {
+            display: inline-block;
+            background: #e0659f;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 18px 38px;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            box-shadow: 0 8px 25px rgba(224, 101, 159, 0.4);
+            transition: 0.3s transform, 0.3s background;
+        }
+        .btn-cta:hover { transform: translateY(-2px); background: #c44f85; }
+
+        /* Контейнер для прайс-листа */
+        .main-content {
+            width: 100%;
+            max-width: 600px;
+            margin: 40px 0;
+            padding: 0 20px;
+        }
+        h2 { text-align: center; font-size: 24px; margin-bottom: 25px; font-weight: 600; }
+
+        /* Прайс-таблица (Карточка) */
+        .price-card {
+            background: rgba(255, 255, 255, 0.95);
+            color: #2a2421;
+            border-radius: 24px;
+            padding: 30px 24px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+        }
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 0;
+            border-bottom: 1px dashed #e0d5cb;
+        }
+        .price-item:last-child { border-bottom: none; }
+        .service-name { font-weight: 600; font-size: 16px; }
+        .service-price { font-weight: 700; font-size: 16px; color: #e0659f; }
+
+        /* Соцсети и контакты */
+        .contacts {
+            background: rgba(20, 20, 20, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            width: 100%;
+            border-radius: 24px;
+            padding: 25px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        .btn-instagram {
+            display: inline-flex;
+            align-items: center;
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            color: white;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 25px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            box-shadow: 0 5px 15px rgba(220, 39, 67, 0.3);
+        }
+        .phone-link { color: #e0659f; font-weight: 700; text-decoration: none; font-size: 18px; display: block; margin-top: 5px; }
+
+        /* Адаптивность под мобильные телефоны */
+        @media (max-width: 768px) {
+            header { padding: 15px 20px; }
+            nav { display: none; } /* Скрываем меню на мобилках для чистоты */
+            .hero { margin-top: 100px; padding: 30px 20px; width: 92%; }
+            .hero h1 { font-size: 28px; }
+            .hero p { font-size: 15px; }
+            .main-content { width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><span>✦</span> Lash Beauty Studio</div>
+        <nav>
+            <a href="#">Услуги</a>
+            <a href="#">Галерея</a>
+            <a href="#">О нас</a>
+            <a href="#">Контакты</a>
+        </nav>
+        <a href="https://dikidi.net/2086709" class="header-btn" target="_blank">Записаться</a>
+    </header>
+
+    <div class="hero">
+        <h1>Наращивание ресниц</h1>
+        <p>Профессиональное наращивание ресниц премиум-качества</p>
+        <a href="https://dikidi.net/2086709" class="btn-cta" target="_blank">Записаться на процедуру</a>
+    </div>
+
+    <div class="main-content">
+        <h2>Наши услуги</h2>
+        
+        <div class="price-card">
+            <div class="price-item">
+                <span class="service-name">Классика</span>
+                <span class="service-price">3 990 ₸</span>
+            </div>
+            <div class="price-item">
+                <span class="service-name">Объем 2D</span>
+                <span class="service-price">6 990 ₸</span>
+            </div>
+            <div class="price-item">
+                <span class="service-name">Объем 3D</span>
+                <span class="service-price">7 990 ₸</span>
+            </div>
+            <div class="price-item">
+                <span class="service-name">Снятие чужой работы</span>
+                <span class="service-price">1 500 ₸</span>
+            </div>
+
+            <div class="contacts">
+                <a href="https://instagram.com/твой_логин" class="btn-instagram" target="_blank">
+                    📸 Мы в Instagram
+                </a>
+                <span style="display:block; margin-top:10px; font-size:14px; color:rgba(255,255,255,0.7);">Телефон для связи:</span>
+                <a href="tel:+77781143859" class="phone-link">+7 (778) 114-38-59</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
