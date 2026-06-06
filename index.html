@@ -1,302 +1,89 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Студия наращивания ресниц</title>
-    <style>
-        body { 
-            font-family: '-apple-system', BlinkMacSystemFont, 'Segoe UI', Roboto, Arial, sans-serif; 
-            margin: 0; 
-            padding: 0; 
-            background: #fdfaf6; 
-            color: #2a2421; 
-            display: flex;
-            justify-content: center;
-        }
-        .container { 
-            max-width: 540px; 
-            width: 100%;
-            padding: 20px; 
-            box-sizing: border-box;
-        }
-        
-        /* Сплит-баннер в стиле референса */
-        .split-banner {
-            display: flex;
-            width: 100%;
-            height: 340px;
-            border-radius: 28px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(61, 49, 42, 0.06);
-            margin-bottom: 25px;
-            background: #ffffff;
-        }
-        .banner-left {
-            flex: 1.1;
-            padding: 30px 20px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            background: #ffffff;
-        }
-        .banner-left h1 {
-            margin: 0 0 10px 0;
-            font-size: 28px;
-            font-weight: 600;
-            color: #2a2421;
-            line-height: 1.2;
-        }
-        .banner-left p {
-            margin: 0 0 15px 0;
-            font-size: 14px;
-            color: #8a7a71;
-            line-height: 1.4;
-        }
-        .banner-price-tag {
-            font-size: 15px;
-            font-weight: 500;
-            color: #a39389;
-        }
-        .banner-price-tag strong {
-            color: #3d312a;
-            font-size: 18px;
-        }
-        .banner-right {
-            flex: 0.9;
-            background: #f4b295; 
-            position: relative;
-        }
-        .banner-right img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        /* Кнопка записи */
-        .btn-main { 
-            display: block; 
-            background: #bf9f8f; 
-            color: #ffffff; 
-            text-decoration: none; 
-            text-align: center;
-            padding: 16px; 
-            border-radius: 30px; 
-            font-size: 16px; 
-            font-weight: 600; 
-            margin: 20px 0; 
-            box-shadow: 0 6px 20px rgba(191, 159, 143, 0.3);
-            border: none;
-            cursor: pointer;
-            transition: 0.2s;
-        }
-        .btn-main:hover { background: #ad8c7c; }
-
-        /* Преимущества */
-        .features { display: flex; justify-content: space-between; margin: 25px 0; gap: 10px; }
-        .feature-box {
-            background: #ffffff; padding: 12px; border-radius: 16px; text-align: center; flex: 1;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.02); border: 1px solid rgba(224, 213, 203, 0.3);
-        }
-        .feature-box .icon { font-size: 20px; margin-bottom: 5px; }
-        .feature-box .text { font-size: 11px; font-weight: 500; color: #6e6057; }
-
-        h2 { font-size: 18px; font-weight: 600; color: #3d312a; margin: 25px 0 15px 0; padding-left: 5px; }
-
-        /* Выезжающие слайды */
-        .accordion-item {
-            background: #ffffff; border-radius: 20px; margin-bottom: 12px;
-            box-shadow: 0 4px 15px rgba(61, 49, 42, 0.02); border: 1px solid rgba(224, 213, 203, 0.3);
-            overflow: hidden;
-        }
-        .accordion-header {
-            padding: 18px 20px; display: flex; justify-content: space-between; align-items: center;
-            cursor: pointer; user-select: none;
-        }
-        .service-title { font-weight: 600; font-size: 15px; color: #3d312a; }
-        .arrow { font-size: 12px; color: #a39389; transition: transform 0.3s ease; }
-        .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; background: #fdfdfd; }
-        .accordion-body { padding: 0 20px 20px 20px; font-size: 13px; color: #6e6057; line-height: 1.5; }
-        
-        .price-row {
-            display: flex; justify-content: space-between; align-items: center;
-            margin-top: 15px; padding-top: 12px; border-top: 1px dashed #e0d5cb;
-        }
-        .details-text { font-size: 12px; color: #a39389; }
-        .price-text { 
-            font-weight: 700; font-size: 15px; color: #ffffff;
-            background: #3d312a; padding: 8px 14px; border-radius: 12px;
-        }
-        .accordion-item.active .arrow { transform: rotate(180deg); }
-
-        /* Контакты и кнопки соцсетей */
-        .contacts {
-            background: #ffffff; padding: 25px 20px; border-radius: 20px; margin-top: 30px; text-align: center;
-            box-shadow: 0 4px 15px rgba(61, 49, 42, 0.02); border: 1px solid rgba(224, 213, 203, 0.3);
-        }
-        .contacts p { margin: 5px 0 15px 0; font-size: 14px; color: #6e6057; }
-        
-        /* Стильная кнопка Инстаграма */
-        .btn-instagram {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            color: #ffffff;
-            text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 25px;
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 15px rgba(220, 39, 67, 0.25);
-            transition: 0.2s;
-        }
-        .btn-instagram:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(220, 39, 67, 0.35); }
-        .btn-instagram span { margin-right: 8px; font-size: 16px; }
-
-        .phone-link { color: #bf9f8f; font-weight: bold; text-decoration: none; font-size: 16px; display: block; margin-top: 5px; }
-
-        /* Адаптивность для мобилок */
-        @media (max-width: 420px) {
-            .split-banner { flex-direction: column; height: auto; }
-            .banner-right { height: 200px; }
-            .banner-left { text-align: center; }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        
-        <!-- Двухцветный баннер -->
-        <div class="split-banner">
-            <div class="banner-left">
-                <h1>Наращивание ресниц</h1>
-                <p>Сделай красивые и выразительные ресницы в нашей студии взгляда</p>
-                <div class="banner-price-tag">от <strong>3 990 ₸</strong></div>
-            </div>
-            <div class="banner-right">
-                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=500&q=80" alt="Beauty model">
-            </div>
-        </div>
-
-        <!-- Кнопка DIKIDI -->
-        <a href="https://dikidi.net/2086709" class="btn-main" target="_blank">
-            Записаться онлайн
-        </a>
-
-        <!-- Блок преимуществ -->
-        <div class="features">
-            <div class="feature-box"><div class="icon">✨</div><div class="text">Топ мастера</div></div>
-            <div class="feature-box"><div class="icon">⏱</div><div class="text">Носка от 4 недель</div></div>
-            <div class="feature-box"><div class="icon">🌿</div><div class="text">Гипоаллергенно</div></div>
-        </div>
-
-        <h2>Наши услуги и описание</h2>
-
-        <!-- Слайды прайса -->
-        <div class="price-section">
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <span class="service-title">Классическое наращивание</span>
-                    <span class="arrow">▼</span>
-                </div>
-                <div class="accordion-content">
-                    <div class="accordion-body">
-                        Наращивание одной искусственной ресницы на одну вашу натуральную. Создает утонченный, максимально естественный эффект туши, идеально подчеркивая длину и изгиб глаз.
-                        <div class="price-row">
-                            <span class="details-text">⏳ Время: 1.5 - 2 часа</span>
-                            <span class="price-text">3 990 ₸</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <span class="service-title">Объемное наращивание 2D</span>
-                    <span class="arrow">▼</span>
-                </div>
-                <div class="accordion-content">
-                    <div class="accordion-body">
-                        Формирование невесомого пучка из двух ультратонких ресничек на каждую родную. Добавляет взгляду приятной густоты, делает его более выразительным, бархатистым и глубоким.
-                        <div class="price-row">
-                            <span class="details-text">⏳ Время: 2 часа</span>
-                            <span class="price-text">6 990 ₸</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <span class="service-title">Объемное наращивание 3D</span>
-                    <span class="arrow">▼</span>
-                </div>
-                <div class="accordion-content">
-                    <div class="accordion-body">
-                        Роскошный объем! Пучок из трех тончайших микроресниц аккуратно наносится на каждую вашу ресничку. Идеально для любительниц яркого макияжа, эффекта пушистых ресниц и особых случаев.
-                        <div class="price-row">
-                            <span class="details-text">⏳ Время: 2.5 часа</span>
-                            <span class="price-text">7 990 ₸</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="accordion-item">
-                <div class="accordion-header">
-                    <span class="service-title">Снятие ресниц чужого мастера</span>
-                    <span class="arrow">▼</span>
-                </div>
-                <div class="accordion-content">
-                    <div class="accordion-body">
-                        Бережное и безопасное снятие наращенных ресниц с использованием мягкого кремового ремувера. Полностью растворяет клей, не повреждая и не травмируя ваши родные ресницы.
-                        <div class="price-row">
-                            <span class="details-text">⏳ Время: 20-30 минут</span>
-                            <span class="price-text">1 500 ₸</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- БЛОК КОНТАКТОВ С НОВОЙ КНОПКОЙ ИНСТАГРАМА -->
-        <div class="contacts">
-            <p>📍 г. Петропавловск, ул. Примерная, 15</p>
-            
-            <!-- ЗАМЕНИ ЭТУ ССЫЛКУ НА СВОЙ ИНСТАГРАМ -->
-            <a href="https://instagram.com/azhr.lash_petro" class="btn-instagram" target="_blank">
-                <span>📸</span> Мы в Instagram
-            </a>
-
-            <p>Или свяжись по телефону:</p>
-            <a href="tel:+77781143859" class="phone-link">+7 (778) 114-38-59</a>
-        </div>
-
-    </div>
-
-    <script>
-        document.querySelectorAll('.accordion-header').forEach(header => {
-            header.addEventListener('click', () => {
-                const item = header.parentElement;
-                const content = item.querySelector('.accordion-content');
-                
-                document.querySelectorAll('.accordion-item').forEach(otherItem => {
-                    if (otherItem !== item && otherItem.classList.contains('active')) {
-                        otherItem.classList.remove('active');
-                        otherItem.querySelector('.accordion-content').style.maxHeight = null;
-                    }
-                });
-
-                item.classList.toggle('active');
-                if (item.classList.contains('active')) {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                } else {
-                    content.style.maxHeight = null;
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+{
+  "name": "@figma/my-make-file",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "scripts": {
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@emotion/react": "11.14.0",
+    "@emotion/styled": "11.14.1",
+    "@mui/icons-material": "7.3.5",
+    "@mui/material": "7.3.5",
+    "@popperjs/core": "2.11.8",
+    "@radix-ui/react-accordion": "1.2.3",
+    "@radix-ui/react-alert-dialog": "1.1.6",
+    "@radix-ui/react-aspect-ratio": "1.1.2",
+    "@radix-ui/react-avatar": "1.1.3",
+    "@radix-ui/react-checkbox": "1.1.4",
+    "@radix-ui/react-collapsible": "1.1.3",
+    "@radix-ui/react-context-menu": "2.2.6",
+    "@radix-ui/react-dialog": "1.1.6",
+    "@radix-ui/react-dropdown-menu": "2.1.6",
+    "@radix-ui/react-hover-card": "1.1.6",
+    "@radix-ui/react-label": "2.1.2",
+    "@radix-ui/react-menubar": "1.1.6",
+    "@radix-ui/react-navigation-menu": "1.2.5",
+    "@radix-ui/react-popover": "1.1.6",
+    "@radix-ui/react-progress": "1.1.2",
+    "@radix-ui/react-radio-group": "1.2.3",
+    "@radix-ui/react-scroll-area": "1.2.3",
+    "@radix-ui/react-select": "2.1.6",
+    "@radix-ui/react-separator": "1.1.2",
+    "@radix-ui/react-slider": "1.2.3",
+    "@radix-ui/react-slot": "1.1.2",
+    "@radix-ui/react-switch": "1.1.3",
+    "@radix-ui/react-tabs": "1.1.3",
+    "@radix-ui/react-toggle-group": "1.1.2",
+    "@radix-ui/react-toggle": "1.1.2",
+    "@radix-ui/react-tooltip": "1.1.8",
+    "canvas-confetti": "1.9.4",
+    "class-variance-authority": "0.7.1",
+    "clsx": "2.1.1",
+    "cmdk": "1.1.1",
+    "date-fns": "3.6.0",
+    "embla-carousel-react": "8.6.0",
+    "input-otp": "1.4.2",
+    "lucide-react": "0.487.0",
+    "motion": "12.23.24",
+    "next-themes": "0.4.6",
+    "react-day-picker": "8.10.1",
+    "react-dnd": "16.0.1",
+    "react-dnd-html5-backend": "16.0.1",
+    "react-hook-form": "7.55.0",
+    "react-popper": "2.3.0",
+    "react-resizable-panels": "2.1.7",
+    "react-responsive-masonry": "2.7.1",
+    "react-router": "7.13.0",
+    "react-slick": "0.31.0",
+    "recharts": "2.15.2",
+    "sonner": "2.0.3",
+    "tailwind-merge": "3.2.0",
+    "tw-animate-css": "1.3.8",
+    "vaul": "1.1.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.1.12",
+    "@vitejs/plugin-react": "4.7.0",
+    "tailwindcss": "4.1.12",
+    "vite": "6.3.5"
+  },
+  "peerDependencies": {
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "pnpm": {
+    "overrides": {
+      "vite": "6.3.5"
+    }
+  }
+}
